@@ -1,0 +1,45 @@
+{
+  "name": "leandraft-linter",
+  "version": "0.1.2",
+  "description": "설계 문서/PR 계획이 과도한지 판독하고 더 작은 대안을 제시하는 CLI 도구",
+  "type": "module",
+  "bin": {
+    "leandraft-lint": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "pnpm --filter frontend build && tsup",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check src tests",
+    "fmt": "biome format --write src tests",
+    "fmt:check": "biome format src tests",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm lint && pnpm typecheck && pnpm test"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.3",
+    "openai": "^4.67.3",
+    "ora": "^8.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.17.6",
+    "@vercel/node": "^5.0.0",
+    "express": "^5.2.1",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

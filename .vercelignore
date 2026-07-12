@@ -1,0 +1,10 @@
+# Vercel 배포 제외 목록
+node_modules
+dist
+.env
+.DS_Store
+examples
+tests
+Dockerfile
+docker-compose.yml
+*.log

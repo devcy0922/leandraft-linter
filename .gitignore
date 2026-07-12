@@ -1,0 +1,40 @@
+# 의존성 및 빌드 산출물
+node_modules/
+dist/
+*.tsbuildinfo
+
+# 환경 설정 (절대 커밋 금지)
+.env
+.env.vercel
+.env.vercel.*
+.env.local
+.env.*.local
+openapi-*.yaml
+
+# 로그
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# 테스트 커버리지
+coverage/
+.nyc_output/
+.vercel
+
+# AI Agents
+agents/
+.agents/
+.cursor/rules
+
+.env*

@@ -1,0 +1,16 @@
+{
+  "buildCommand": "pnpm --filter frontend build",
+  "outputDirectory": "frontend/dist",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "functions": {
+    "api/check.ts": {
+      "memory": 256,
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
