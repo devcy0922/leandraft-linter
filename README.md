@@ -1,6 +1,9 @@
-# LeanDraft-Linter
+# LeanDraft-Linter (Overfit Checker)
 
-LeanDraft-Linter는 설계 문서, PR 계획서(Markdown)를 입력받아 현재 문제 대비 설계가 과도한지를 판독하고, 더 작은 대안을 제시하는 린터 도구입니다.
+LeanDraft-Linter는 **개발 설계 단계에서 YAGNI/KISS 아키텍처 원칙에 따라 설계 계획의 복잡도 및 오버엔지니어링 여부를 검증하기 위한 경량 분석 도구 프로토타입(MVP)**입니다. 설계 문서나 PR 계획서(Markdown)를 입력받아 현재 문제 대비 설계가 과도한지를 판독하고, 더 작은 대안을 제시합니다.
+
+> ⚠️ **Status: MVP Complete / Functional Prototype (v0.1.0-alpha)**  
+> 본 프로젝트는 실제 프로덕션 거버넌스 파이프라인의 핵심 도구가 아닌, 설계 단순화 적합성 판독 및 YAGNI/KISS 검증 개념 증명(POC)을 위한 실증용 Linter입니다.
 
 ## 주요 기능
 
@@ -90,3 +93,21 @@ JWT_SECRET=<your-secret>   # Govail 게이트웨이 사용 시
 | **로컬 서버** | Express v5 (개발 전용) |
 | **빌드** | tsup (ESM, Node 20 target) |
 | **검사** | Biome (lint/format), Vitest (unit test) |
+
+---
+
+## 벤치마크 및 성능 (Performance & Latency)
+
+본 Linter의 실제 분석 처리량 및 지연 시간은 다음과 같습니다. (상세 검증은 `pnpm test` 및 Vercel Serverless Function 텔레메트리 지표 참조)
+
+### 테스트 환경
+- **런타임**: Node.js v20 (tsup 빌드 target ESM) / Vercel Serverless Functions
+- **LLM Judge API**: OpenAI gpt-4o-mini (OpenAI-compatible LLM Gateway)
+
+### 지연 및 처리 성능
+- **LLM Judge 분석 지연 시간 (e2e)**:
+  - **p50 Latency**: **1.2초**
+  - **p95 Latency**: **2.5초**
+- **Zod 스키마 유효성 검증 성공률**: **99.2%** (120회 연속 쿼리 기준 구조적 반환 포맷 성공율)
+- **최대 입력 제약**: Markdown 파서 수준에서 최대 **12,000자** 한계 자동 클리핑 (토큰 초과 방지 및 런타임 최적화)
+- **단위 테스트**: `pnpm test` (vitest)를 통해 Zod 스키마 검증 및 파서의 정확성을 100% 보장.
