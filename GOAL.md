@@ -30,7 +30,7 @@
 IN:
 * `src/schema/result.ts` Zod 스키마 수정
 * `src/llm/prompt.ts` 시스템 프롬프트 가이드 추가
-* `src/llm/client.ts` GoVail Router SSE 폴백용 모의 데이터 수정
+* `src/llm/client.ts` Aegis Router SSE 폴백용 모의 데이터 수정
 * `src/ui/render.ts` CLI 렌더링 수정 및 규모 불균형 판정 조건 완화
 * `frontend/src/App.vue` 결과 컴포넌트 마크업, 타입 정의 및 규모 불균형 판정 조건 완화
 * `tests/schema.test.ts` 모의 결과 데이터 스키마 테스트 수정

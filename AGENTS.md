@@ -26,7 +26,7 @@ Govail의 일부가 아니며 독립적으로 실행 가능합니다.
    - 이에 따라 `overfit-checker`는 완전히 독립된 CLI 및 로컬 웹 UI 프로젝트로 운영됩니다.
    - LLM 연동 방식이 기존의 고정 API Key 방식에서 **단기 만료형(15분) JWT 토큰 발행 및 검증 방식**으로 전면 개편되었습니다.
 2. **포크 저장소 유지 사유 (yoonCY/overfit-checker)**
-   - **원본 저장소**: `https://github.com/GoVail/overfit-checker`
+   - **원본 저장소**: `https://github.com/Aegis/overfit-checker`
    - **포크 저장소 (우리 프로젝트)**: `https://github.com/yoonCY/overfit-checker`
    - **유지 사유**: Vercel 서버리스 환경(`api/check.ts` Serverless Function)에 실시간 배포 및 웹 UI 서비스를 업로드하고 테스트하기 위함입니다.
    - **기여 시 주의**: 원본 upstream 리포지토리의 최신 코드를 지속적으로 반영(싱크)하되, 우리 프로젝트 고유의 Vercel 배포 관련 커스텀 설정(예: JWT 서명 로직 `generateGatewayToken()`, `vercel.json` 설정, 배포 가이드 문서 등)이 손상되거나 삭제되지 않도록 유지해야 합니다.
@@ -140,8 +140,8 @@ OverfitResult = {
 pnpm install
 
 # CLI 개발 실행 (빌드 없이 tsx로 직접 실행)
-pnpm dev -- check examples/govail-runtime-spec.md
-pnpm dev -- examples/govail-runtime-spec.md       # 최상위 인수 방식 (동일 동작)
+pnpm dev -- check examples/aegis-runtime-spec.md
+pnpm dev -- examples/aegis-runtime-spec.md       # 최상위 인수 방식 (동일 동작)
 pnpm dev -- ui --port 3000                        # 로컬 Express 서버 (테스트 전용)
 
 # Vercel 로컬 에뮬레이션 (api/check.ts 포함)
@@ -154,7 +154,7 @@ docker compose up --build
 pnpm build
 
 # 빌드 후 실행
-node dist/index.js check examples/govail-runtime-spec.md
+node dist/index.js check examples/aegis-runtime-spec.md
 node dist/index.js ui --port 3000
 
 # 전체 검사

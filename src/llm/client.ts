@@ -126,7 +126,7 @@ export async function analyzeDocument(
 
   if (routerURL) {
     // ----------------------------------------------------
-    // 1. GoVail Router SSE 스트리밍 모드
+    // 1. Aegis Router SSE 스트리밍 모드
     // ----------------------------------------------------
     const response = await fetch(routerURL, {
       method: "POST",
@@ -147,12 +147,12 @@ export async function analyzeDocument(
 
     if (!res.ok) {
       const errorText = await res.text();
-      throw new Error(`GoVail Router 호출 실패 (HTTP ${res.status}): ${errorText}`);
+      throw new Error(`Aegis Router 호출 실패 (HTTP ${res.status}): ${errorText}`);
     }
 
     const reader = res.body?.getReader();
     if (!reader) {
-      throw new Error("GoVail Router 응답 스트림 바디 리더를 획득할 수 없습니다.");
+      throw new Error("Aegis Router 응답 스트림 바디 리더를 획득할 수 없습니다.");
     }
 
     const decoder = new TextDecoder();
@@ -232,15 +232,15 @@ export async function analyzeDocument(
         next_tasks: [
           {
             order: 1,
-            task: `GoVail Runtime Task ID (${finalDecision.delegation_result?.runtime_task_id ?? "N/A"}) 실행 확인`,
+            task: `Aegis Runtime Task ID (${finalDecision.delegation_result?.runtime_task_id ?? "N/A"}) 실행 확인`,
           },
           { order: 2, task: `수립된 계획 스텝 ${stepsCount}개 검토` },
           { order: 3, task: "코드 복잡도 낮추기 및 설계 경량화 수행" },
         ],
-        summary: `GoVail Router가 ${finalDecision.target ?? "N/A"} 타겟으로 작업 위임을 마쳤습니다.`,
-        reasoning: `GoVail Router가 ${finalDecision.target ?? "N/A"} 타겟을 위해 수립한 ${stepsCount}개의 실행 스텝을 분석했습니다. 문제 규모에 비해 불필요하게 복잡한 다단계 프로세스 위임 또는 런타임이 식별되었습니다.`,
+        summary: `Aegis Router가 ${finalDecision.target ?? "N/A"} 타겟으로 작업 위임을 마쳤습니다.`,
+        reasoning: `Aegis Router가 ${finalDecision.target ?? "N/A"} 타겟을 위해 수립한 ${stepsCount}개의 실행 스텝을 분석했습니다. 문제 규모에 비해 불필요하게 복잡한 다단계 프로세스 위임 또는 런타임이 식별되었습니다.`,
         detected_category: "Web API",
-        analysis_approach: "GoVail Router 계획 실행 데이터 분석 및 타겟 복잡성 검증",
+        analysis_approach: "Aegis Router 계획 실행 데이터 분석 및 타겟 복잡성 검증",
         inferred_assumptions: [
           "실행 계획 단계의 수가 많으므로 다중 서비스 모듈이 기동되어야 한다고 가정함",
           "런타임 위임 기능이 활성화되어 있어 분산 분리 실행 환경으로 유추함",

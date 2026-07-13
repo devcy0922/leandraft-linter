@@ -73,7 +73,7 @@ export function createCheckCommand(): Command {
 
         // 실시간 스트리밍 과정 렌더링
         console.log(
-          `\n🔍 GoVail Router 오케스트레이션 기동 (추정 토큰: ${doc.estimatedTokens.toLocaleString()})\n`,
+          `\n🔍 Aegis Router 오케스트레이션 기동 (추정 토큰: ${doc.estimatedTokens.toLocaleString()})\n`,
         );
         const spinner = ora({
           text: "오케스트레이터 시작 대기 중...",
