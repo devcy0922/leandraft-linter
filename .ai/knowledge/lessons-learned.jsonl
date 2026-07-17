@@ -1,1 +1,0 @@
-{"ts":"2026-06-27T16:42:00+09:00","taskId":"feat-explainable-overfit","domain":"leandraft-linter","lesson":"tsup 빌드 시 dependencies가 번들링되는 과정에서 dynamic require 관련 node built-in(tty 등) 에러가 발생하므로 로컬 CLI 테스트 시에는 tsx 기반의 dev 스크립트를 사용하여 직접 ts 파일을 런타임 실행하도록 유도해야 함.","category":"build","files":["tsup.config.ts","package.json"]}

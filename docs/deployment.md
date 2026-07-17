@@ -71,9 +71,9 @@ vercel --prod
 
 > [!IMPORTANT]
 > **Git Commit Author Verification(이메일 검증) 오류 조치**:
-> `vercel --prod` 실행 시 커밋 이메일(`kin123d@gmail.com`)이 Vercel에 매핑된 계정과 불일치하여 빌드가 거부되는 현상이 발생하면, 터미널에서 Git 사용자 이메일을 Vercel 가입 메일과 일치하도록 임시 변경한 뒤 재배포해야 합니다.
+> `vercel --prod` 실행 시 커밋 이메일이 Vercel에 매핑된 계정과 불일치하여 빌드가 거부되면, 터미널에서 Git 사용자 이메일을 본인의 Vercel 가입 메일과 일치하도록 변경한 뒤 재배포해야 합니다.
 > ```bash
-> git config user.email "kin123d@gmail.com"
+> git config user.email "<VERCEL_ACCOUNT_EMAIL>"
 > npx vercel --prod
 > ```
 
@@ -118,7 +118,7 @@ gcloud artifacts repositories create $REPO_NAME \
 # 3. Docker 인증 구성
 gcloud auth configure-docker $REGION-docker.pkg.dev
 
-# 4. 로컬 Docker 빌드 (M1/M2 맥 등에서 빌드 시 target platform 주의)
+# 4. 로컬 Docker 빌드 (ARM64 환경에서는 target platform 주의)
 # Cloud Run은 amd64 환경이므로, Multi-platform 빌드를 권장합니다.
 docker buildx build --platform linux/amd64 \
     -t $REGION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$IMAGE_NAME:$TAG \
@@ -137,7 +137,7 @@ gcloud run deploy overfit-checker \
     --region=$REGION \
     --allow-unauthenticated \
     --set-env-vars="LLM_BASE_URL=https://your-llm-gateway.com/v1,LLM_MODEL=auto" \
-    --set-secrets="LLM_API_KEY=overfit-gateway-api-key:latest"
+    --set-secrets="LLM_API_KEY=<SECRET_RESOURCE_NAME>:latest"
 ```
 
 > [!TIP]

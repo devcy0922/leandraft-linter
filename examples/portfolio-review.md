@@ -5,13 +5,13 @@
 ### 좋은 점 (강점)
 - **전문성**이 잘 드러남: Policy First, Zero Trust, Audit Everything, Least Privilege 같은 제품 원칙을 명확히 정의하고, 이를 기술적으로 어떻게 구현할지 구조화한 점이 인상적.
 - **시스템 설계 능력** 보여줌: 모노레포 구조, 컴포넌트별 역할, Docker Profile 관리, Rust + Python 조합, Temporal/SurrealDB 등 현대적인 스택을 제대로 다룸.
-- **실무 경험**이 느껴짐: AI Agent(Codex, Antigravity 등)와의 협업 가이드, 보안 규칙, 내부 배포 환경(Mac Mini + DGX Spark)까지 구체적.
+- **실무 경험**이 느껴짐: AI Agent와의 협업 가이드, 보안 규칙, 내부 배포 환경까지 구체적.
 - **문서화 역량** 뛰어남: 구조, 테이블, 코드 블록, 워크플로우가 깔끔해서 읽기 좋음. 이 정도 문서화 능력은 큰 플러스.
 
 ### 개선하면 더 좋을 점 (포폴리오화 추천)
 1. **민감 정보 완전 제거** (필수!)
-   - `192.168.0.5`, `192.168.0.7`, Mac Mini, DGX Spark 등 내부 인프라 정보 다 빼세요.
-   - "Mac Mini (ai-service-infra)" → "On-prem GPU cluster node" 정도로 일반화.
+   - 사설 IP와 구체적인 장비명 등 내부 인프라 정보는 모두 제거하세요.
+   - 구체적인 호스트명은 "On-prem compute node" 정도로 일반화하세요.
    - 실제 키, 호스트명, 내부 도메인 등은 다 generic하게 바꾸기.
 
 2. **포트폴리오용으로 리팩토링 제안**

@@ -1,1 +1,0 @@
-{"ts":"2026-06-27T16:42:00+09:00","domain":"leandraft-linter","errorType":"DynamicRequireError","file":"dist/index.js","symptom":"tsup bundle 빌드 본 실행 시 Dynamic require of 'tty' is not supported 오류 발생","fix":"로컬 테스트 실행 시 tsx 기반의 개발 스크립트(pnpm dev)를 이용하여 런타임에 직접 ts 모듈을 분석하도록 우회"}

@@ -33,8 +33,12 @@ coverage/
 .vercel
 
 # AI Agents
+AGENTS.md
+CLAUDE.md
+GEMINI.md
 agents/
 .agents/
+.ai/
 .cursor/rules
 
 .env*
